@@ -1,22 +1,27 @@
-const url = `${
-	process.env.NODE_ENV === 'production'
-		? 'https://yoloyoloyolo.netlify.app'
-		: 'http://localhost:8888'
-}/.netlify/functions/smart-ai-errors`;
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'application/json');
 
 async function handleError(error, apiKey) {
-	const response = await fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			prompt: `Say in human language not more than 5 words: ${error}`,
-			apiKey: apiKey,
-		}),
+	var raw = JSON.stringify({
+		prompt: error,
+		apiKey: apiKey,
 	});
-	const result = await response.json();
+
+	var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow',
+	};
+
+	const response = await fetch(
+		'https://yoloyoloyolo.netlify.app/.netlify/functions/smart-ai-errors',
+		requestOptions
+	);
+
+	const result = await response.text();
+	console.log(result);
 	return result;
 }
 
-module.exports = handleError;
+// module.exports = handleError;
