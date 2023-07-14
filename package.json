@@ -1,0 +1,28 @@
+{
+  "name": "smart-ai-errors",
+  "version": "1.0.0",
+  "description": "Interpret error messages to human readable errors using open-ai",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emekaorji/smart-ai-errors.git"
+  },
+  "keywords": [
+    "ai",
+    "error-handler",
+    "chat-gpt",
+    "gpt-3",
+    "human-readable",
+    "errors"
+  ],
+  "author": "Emeka Orji",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emekaorji/smart-ai-errors/issues"
+  },
+  "homepage": "https://github.com/emekaorji/smart-ai-errors#readme"
+}
